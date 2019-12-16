@@ -2713,6 +2713,11 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+classnames@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
+  integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
+
 clean-css@4.2.x:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/clean-css/-/clean-css-4.2.1.tgz#2d411ef76b8569b6d0c84068dabe85b0aa5e5c17"
@@ -3878,10 +3883,10 @@ eslint-config-prettier@^6.4.0:
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-config-tmaito-base@^1.0.2:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/eslint-config-tmaito-base/-/eslint-config-tmaito-base-1.0.3.tgz#34d37cec4ec1fd91a58cc3eafe7ef03fa00317ef"
-  integrity sha512-ldEUbL5vuhEWbLiW3BntNHAK+7vtShVjK9avdJaKIy57bk0cEMRSC7Sw/Xc26sl9ThNiDr7DY26zN9sMYrf/UA==
+eslint-config-tmaito-base@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/eslint-config-tmaito-base/-/eslint-config-tmaito-base-1.0.5.tgz#e02f07d78d4c46febce334f8db1ec44fa49b7ab8"
+  integrity sha512-UijkoylPo02Sv/lolFnE0KDs/AD59NXYZSdbFRW3EPk5jtVihuGcuxYsqIy3U2uWgwjZMH4n72kgjjkQgLoxIQ==
   dependencies:
     babel-preset-airbnb "^4.4.0"
     eslint-plugin-html "^6.0.0"
@@ -3889,12 +3894,12 @@ eslint-config-tmaito-base@^1.0.2:
     eslint-plugin-node "^10.0.0"
     eslint-plugin-promise "^4.2.1"
 
-eslint-config-tmaito@^1.1.6:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/eslint-config-tmaito/-/eslint-config-tmaito-1.1.6.tgz#153eb57a7bfe40812bfefea794fc5bcf90a4cfb6"
-  integrity sha512-99Hw8z7OlYONyJo4UQX66vCfEi7OIK6PA9A6f2HyiLWYJQl61OMo/ISz6fRRIVzcvDt7dRfz5x1Wk8adCw5eGQ==
+eslint-config-tmaito@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/eslint-config-tmaito/-/eslint-config-tmaito-1.1.9.tgz#959a57facfc2a46a2b9b9d541abcbb2d51b517c6"
+  integrity sha512-jOV5OeoPvP2Ht/NCUtYUGtfbs8lqR2hqYKfai6XedfHTxfQv8YZ2LgoEbJhYTYhLxwGhJwqy2mJDCBQFw6hbEg==
   dependencies:
-    eslint-config-tmaito-base "^1.0.2"
+    eslint-config-tmaito-base "^1.0.5"
     eslint-plugin-react "^7.16.0"
     eslint-plugin-react-hooks "^2.3.0"
 
@@ -8283,6 +8288,13 @@ quick-lru@^1.0.0:
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-1.1.0.tgz#4360b17c61136ad38078397ff11416e186dcfbb8"
   integrity sha1-Q2CxfGETatOAeDl/8RQW4Ybc+7g=
 
+raf@^3.4.1:
+  version "3.4.1"
+  resolved "https://registry.yarnpkg.com/raf/-/raf-3.4.1.tgz#0742e99a4a6552f445d73e3ee0328af0ff1ede39"
+  integrity sha512-Sq4CW4QhwOHE8ucn6J34MqtZCeWFP2aQSmrlroYgqAV1PjStIhJXxYuTgUIfkEk7zTLjmIjLmU5q+fbD1NnOJA==
+  dependencies:
+    performance-now "^2.1.0"
+
 randombytes@^2.0.0, randombytes@^2.0.1, randombytes@^2.0.5:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/randombytes/-/randombytes-2.1.0.tgz#df6f84372f0270dc65cdf6291349ab7a473d4f2a"
@@ -8323,15 +8335,15 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@^16.10.2:
-  version "16.11.0"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.11.0.tgz#7e7c4a5a85a569d565c2462f5d345da2dd849af5"
-  integrity sha512-nrRyIUE1e7j8PaXSPtyRKtz+2y9ubW/ghNgqKFHHAHaeP0fpF5uXR+sq8IMRHC+ZUxw7W9NyCDTBtwWxvkb0iA==
+react-dom@^16.12.0:
+  version "16.12.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.12.0.tgz#0da4b714b8d13c2038c9396b54a92baea633fe11"
+  integrity sha512-LMxFfAGrcS3kETtQaCkTKjMiifahaMySFDn71fZUNpPHZQEzmk/GiAeIT8JSOrHB23fnuCOMruL2a8NYlw+8Gw==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "^0.17.0"
+    scheduler "^0.18.0"
 
 react-is@^16.8.1:
   version "16.11.0"
@@ -8868,10 +8880,10 @@ sax@^1.2.4, sax@~1.2.4:
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
   integrity sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
 
-scheduler@^0.17.0:
-  version "0.17.0"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.17.0.tgz#7c9c673e4ec781fac853927916d1c426b6f3ddfe"
-  integrity sha512-7rro8Io3tnCPuY4la/NuI5F2yfESpnfZyT6TtkXnSWVkcu0BCDJ+8gk5ozUaFaxpIyNuWAPXrH0yFcSi28fnDA==
+scheduler@^0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.18.0.tgz#5901ad6659bc1d8f3fdaf36eb7a67b0d6746b1c4"
+  integrity sha512-agTSHR1Nbfi6ulI0kYNK0203joW2Y5W4po4l+v03tOoiJKpTBbxpNhWDvqc/4IcOw+KLmSiQLTasZ4cab2/UWQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"

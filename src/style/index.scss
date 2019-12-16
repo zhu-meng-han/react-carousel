@@ -1,5 +1,164 @@
-.test {
-  color: #333;
-  font-weight: bold;
-  font-size: 12px;
+.el-carousel {
+  position: relative;
+  overflow-x: hidden;
+  &__container {
+    position: relative;
+    height: 300px;
+  }
+  &__dots {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 2;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    transform: translateX(-50%);
+    &--outside {
+      position: static;
+      height: 24px;
+      line-height: 24px;
+      text-align: center;
+      transform: none;
+      button {
+        background-color: #8391a5;
+        opacity: 0.24;
+      }
+    }
+  }
+  &__dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 2px;
+    padding: 0;
+    text-align: center;
+    vertical-align: middle;
+    background-color: transparent;
+    cursor: pointer;
+    &.is-active {
+      opacity: 1;
+      button {
+        width: 24px;
+        opacity: 1;
+      }
+    }
+    &:hover {
+      button {
+        opacity: 0.72;
+      }
+    }
+  }
+  &__arrow,
+  &__button {
+    margin: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+  &__button {
+    display: block;
+    width: 8px;
+    height: 3px;
+    padding: 0;
+    background-color: #fff;
+    border: none;
+    border-radius: 1px;
+    opacity: 0.48;
+  }
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    line-height: 36px;
+    text-align: center;
+    background-color: rgba(31, 45, 61, 0.12);
+    border: none;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    &:hover {
+      background-color: rgba(31, 45, 61, 0.24);
+    }
+    &--left {
+      left: 16px;
+      &-enter,
+      &-leave-active {
+        transform: translateY(-50%) translateX(-10px);
+        opacity: 0;
+      }
+      i {
+        transform: rotate(180deg);
+      }
+    }
+    &--right {
+      right: 16px;
+      &-enter,
+      &-leave-active {
+        transform: translateY(-50%) translateX(10px);
+        opacity: 0;
+      }
+    }
+    &--icon {
+      display: block;
+      width: 16px;
+      height: 16px;
+      margin: 0 auto;
+      background-image: url(../arrow.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+  &__mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    opacity: 0.24;
+    transition: 0.2s;
+  }
+  &__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    &--card,
+    &.is-animating {
+      transition: transform 0.4s ease-in-out;
+    }
+    &.is {
+      &-active {
+        z-index: 2;
+      }
+      &-in-stage {
+        z-index: 1;
+        cursor: pointer;
+      }
+    }
+    &--card {
+      width: 50%;
+      &.is {
+        &-in-stage {
+          z-index: 1;
+          cursor: pointer;
+          &:hover {
+            .el-carousel__mask {
+              opacity: 0.12;
+            }
+          }
+        }
+        &-active {
+          z-index: 2;
+        }
+      }
+    }
+  }
 }

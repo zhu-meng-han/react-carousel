@@ -1,4 +1,7 @@
-import Test from './Test';
+import Carousel from './Carousel';
+import CarouselItem from './CarouselItem';
 import './style/index.scss';
 
-export default Test;
+Carousel.Item = CarouselItem;
+
+export default Carousel;

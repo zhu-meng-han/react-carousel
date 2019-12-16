@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import Test from '../src/index';
+import Carousel from '../src/index';
 import './assets/scss/index.scss';
 
+const { Item } = Carousel;
 class App extends Component {
   render() {
     return (
       <div className="examples">
-        <Test />
+        <Carousel height={200} type="card" autoplay={false}>
+          {[1, 2, 3, 4].map(item => (
+            <Item key={item}>{item}</Item>
+          ))}
+        </Carousel>
       </div>
     );
   }
