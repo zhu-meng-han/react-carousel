@@ -1,0 +1,49 @@
+$hd: 1 !default; // 基本单位
+
+/* Font */
+$font-size-s: 12px * $hd !default;
+$font-size-base: 14px * $hd !default;
+$font-size-l: 16px * $hd !default;
+$font-size-xl: 18px * $hd !default;
+$font-size-xxl: 20px * $hd !default;
+$font-size-xxxl: 24px * $hd !default;
+
+/* Text Color */
+$color-base: #000 !default; // 文字的基本色
+$color-white: #fff !default; // 白色
+$color-white-gray: rgba(255, 255, 255, 0.8) !default; // 白色
+$color-active: #2d85f3 !default; // active
+$color-grey: rgba(0, 0, 0, 0.65) !default;
+$color-grey-light: rgba(0, 0, 0, 0.45) !default;
+$color-grey-dark: rgba(0, 0, 0, 0.85) !default;
+$color-danger: #f62828 !default;
+$color-primary: $color-active !default;
+$color-warning: #faad14 !default;
+$color-success: #36c626 !default;
+
+/* Icon Color */
+$color-icon-default: #bfbfbf !default;
+$color-icon-primary: $color-active !default;
+
+/* Border Radius */
+$border-radius-sm: 2px * $hd !default;
+$border-radius-md: 4px * $hd !default;
+$border-radius-l: 6px * $hd !default;
+$border-radius-xl: 8px * $hd !default;
+$border-radius-xxl: 10px * $hd !default;
+$border-radius-circle: 50% !default;
+
+/* Border Color */
+$color-border: #d9d9d9 !default;
+$color-border-danger: $color-danger !default;
+
+/* Background Color */
+$bg-base: #f4f4f4 !default;
+$bg-white: #fff !default;
+$bg-black: $color-base !default;
+$bg-grey: $color-grey-light !default;
+$bg-success: $color-success !default;
+$bg-primary: $color-primary !default;
+$bg-warning: $color-warning !default;
+$bg-danger: $color-danger !default;
+$bg-alpha: rgba(0, 0, 0, 0.45) !default;

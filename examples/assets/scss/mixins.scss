@@ -1,0 +1,16 @@
+@import ("./var.scss");
+
+@mixin ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin ellipsis-line($n = 2) {
+  @include ellipsis;
+
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $n;
+}

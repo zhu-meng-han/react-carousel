@@ -1,0 +1,59 @@
+@import "./var.scss";
+
+.align {
+  &-center {
+    text-align: center;
+  }
+  &-right {
+    text-align: right;
+  }
+}
+
+.num {
+  display: inline-block;
+  margin: 0 2px;
+  font-weight: 500;
+  font-size: 16px;
+}
+.danger {
+  color: $color-danger !important;
+}
+.warning {
+  color: $color-warning !important;
+}
+.primary {
+  color: $color-primary !important;
+}
+
+.link {
+  display: inline-block;
+  margin: 0 5px;
+  color: $color-primary;
+  &:hover {
+    cursor: pointer;
+  }
+}
+.not-allowed {
+  display: inline-block;
+  margin: 0 5px;
+  color: grba(0, 0, 0, 0.2) !important;
+  &:hover {
+    cursor: not-allowed !important;
+  }
+}
+
+.rotate {
+  cursor: pointer;
+  &:hover {
+    transform: rotate(666turn);
+    transition-delay: 1s;
+    transition-timing-function: cubic-bezier(0.34, 0, 0.84, 1);
+    transition-duration: 59s;
+    transition-property: all;
+  }
+}
+
+.examples {
+  width: 80%;
+  margin: 20px auto;
+}
