@@ -23,11 +23,9 @@ class Transition extends Component {
 
   UNSAFE__componentWillReceiveProps(nextProps) {
     const children =
-      React.isValidElement(this.props.children) &&
-      React.Children.only(this.props.children);
+      React.isValidElement(this.props.children) && React.Children.only(this.props.children);
     const nextChildren =
-      React.isValidElement(nextProps.children) &&
-      React.Children.only(nextProps.children);
+      React.isValidElement(nextProps.children) && React.Children.only(nextProps.children);
 
     if (!nextProps.name) {
       this.setState({
@@ -53,20 +51,14 @@ class Transition extends Component {
     if (!this.props.name) return;
 
     const children =
-      React.isValidElement(this.props.children) &&
-      React.Children.only(this.props.children);
+      React.isValidElement(this.props.children) && React.Children.only(this.props.children);
     const preChildren =
-      React.isValidElement(preProps.children) &&
-      React.Children.only(preProps.children);
+      React.isValidElement(preProps.children) && React.Children.only(preProps.children);
 
     if (this.isViewComponent(children)) {
       if ((!preChildren || !preChildren.props.show) && children.props.show) {
         this.toggleVisible();
-      } else if (
-        preChildren &&
-        preChildren.props.show &&
-        !children.props.show
-      ) {
+      } else if (preChildren && preChildren.props.show && !children.props.show) {
         this.toggleHidden();
       }
     } else if (!preChildren && children) {
@@ -112,17 +104,14 @@ class Transition extends Component {
     element.classList.add(active);
 
     const styles = getComputedStyle(element);
-    const duration =
-      parseFloat(styles.animationDuration) ||
-      parseFloat(styles.transitionDuration);
+    const duration = parseFloat(styles.animationDuration) || parseFloat(styles.transitionDuration);
 
     element.classList.add(action);
 
     if (duration === 0) {
       const styles = getComputedStyle(element);
       const duration =
-        parseFloat(styles.animationDuration) ||
-        parseFloat(styles.transitionDuration);
+        parseFloat(styles.animationDuration) || parseFloat(styles.transitionDuration);
 
       clearTimeout(this.timeout);
 
@@ -178,13 +167,7 @@ class Transition extends Component {
 
   toggleVisible() {
     const { onEnter } = this.props;
-    const {
-      enter,
-      enterActive,
-      enterTo,
-      leaveActive,
-      leaveTo
-    } = this.transitionClass;
+    const { enter, enterActive, enterTo, leaveActive, leaveTo } = this.transitionClass;
     const childDOM = ReactDOM.findDOMNode(this.el);
 
     childDOM.addEventListener('transitionend', this.didEnter);
@@ -215,13 +198,7 @@ class Transition extends Component {
 
   toggleHidden() {
     const { onLeave } = this.props;
-    const {
-      leave,
-      leaveActive,
-      leaveTo,
-      enterActive,
-      enterTo
-    } = this.transitionClass;
+    const { leave, leaveActive, leaveTo, enterActive, enterTo } = this.transitionClass;
     const childDOM = ReactDOM.findDOMNode(this.el);
 
     childDOM.addEventListener('transitionend', this.didLeave);

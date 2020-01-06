@@ -30,7 +30,7 @@ class CarouselItem extends Component {
   translateItem = (index, activeIndex, oldIndex) => {
     const { carouselRef, state, isCard } = this.parent;
     const { length } = state.items;
-    const parentWidth = carouselRef.offsetWidth;
+    const { offsetWidth: parentWidth = 0 } = carouselRef;
     const params = {
       ready: true
     };
@@ -49,7 +49,7 @@ class CarouselItem extends Component {
         newIndex,
         activeIndex,
         parentWidth,
-        Math.round(Math.abs(newIndex - activeIndex)) <= 1
+        Math.round(Math.abs(newIndex - activeIndex))
       );
       params.scale = newIndex === activeIndex ? 1 : SCALE;
     } else {
@@ -59,6 +59,7 @@ class CarouselItem extends Component {
     this.setState({
       ...params
     });
+    this.forceUpdate();
   };
 
   processIndex = (index, activeIndex, length) => {
@@ -76,10 +77,11 @@ class CarouselItem extends Component {
   };
 
   calculateTranslate = (index, activeIndex, parentWidth, inStage) => {
-    if (inStage) {
-      return (
-        (parentWidth * ((2 - SCALE) * (index - activeIndex) + 1)) / DENOMINATOR
-      );
+    const { cardWidth } = this.parent;
+    if (inStage <= 1) {
+      return inStage
+        ? (parentWidth * ((2 - SCALE) * (index - activeIndex) + 1)) / DENOMINATOR
+        : ((1 - cardWidth) * parentWidth) / 2;
     }
     if (index < activeIndex) {
       return (-(1 + SCALE) * parentWidth) / DENOMINATOR;
@@ -97,6 +99,11 @@ class CarouselItem extends Component {
 
   render() {
     const { scale, translate, ready, active, inStage, animating } = this.state;
+    const { isCard, cardWidth } = this.parent;
+    let width = 100;
+    if (isCard) {
+      width = active ? cardWidth * 100 : 50;
+    }
     return (
       <View show={ready}>
         <div
@@ -108,6 +115,7 @@ class CarouselItem extends Component {
           })}
           onClick={this.handleItem}
           style={{
+            width: `${width}%`,
             msTransform: `translateX(${translate}px) scale(${scale})`,
             WebkitTransform: `translateX(${translate}px) scale(${scale})`,
             transform: `translateX(${translate}px) scale(${scale})`

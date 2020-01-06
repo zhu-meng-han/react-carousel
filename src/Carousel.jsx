@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { Transition, View } from '@/libs';
-import {
-  addResizeListener,
-  removeResizeListener
-} from '@/libs/utils/resize-event';
+import { addResizeListener, removeResizeListener } from '@/libs/utils/resize-event';
 
 class Carousel extends Component {
   static childContextTypes = {
@@ -41,10 +38,6 @@ class Carousel extends Component {
 
     if (nextState.activeIndex !== activeIndex) {
       this.resetItemPosition(nextState.activeIndex);
-
-      if (this.props.onChange) {
-        this.props.onChange(activeIndex, nextState.activeIndex);
-      }
     }
   }
 
@@ -61,14 +54,19 @@ class Carousel extends Component {
     return false;
   }
 
+  get cardWidth() {
+    const { type, activeCardScale } = this.props;
+    return type === 'card' ? activeCardScale : '100%';
+  }
+
   prev = () => {
     const { activeIndex } = this.state;
-    this.setActiveItem(activeIndex - 1);
+    this.setActiveItem(activeIndex - 1, false);
   };
 
   next = () => {
     const { activeIndex } = this.state;
-    this.setActiveItem(activeIndex + 1);
+    this.setActiveItem(activeIndex + 1, true);
   };
 
   startTimer = () => {
@@ -116,7 +114,8 @@ class Carousel extends Component {
   handleThrottleArrow = isNext => {
     const { activeIndex } = this.state;
     const index = isNext ? activeIndex + 1 : activeIndex - 1;
-    this.setActiveItem(index);
+
+    this.setActiveItem(index, isNext);
   };
 
   addItem = item => {
@@ -132,7 +131,7 @@ class Carousel extends Component {
     this.setActiveItem(0);
   };
 
-  setActiveItem = index => {
+  setActiveItem = (index, isNext) => {
     const { items } = this.state;
     const { length } = items;
     let activeIndex = index;
@@ -141,8 +140,10 @@ class Carousel extends Component {
     } else if (index >= length) {
       activeIndex = 0;
     }
-
     this.setState({ activeIndex });
+    if (this.props.onChange && isNext !== undefined) {
+      this.props.onChange(activeIndex, isNext);
+    }
   };
 
   resetItemPosition = oldIndex => {
@@ -188,10 +189,7 @@ class Carousel extends Component {
             {arrow !== 'never' && (
               <View show={isShow}>
                 <button
-                  className={classnames(
-                    'el-carousel__arrow',
-                    'el-carousel__arrow--left'
-                  )}
+                  className={classnames('el-carousel__arrow', 'el-carousel__arrow--left')}
                   onClick={() => this.handleThrottleArrow(false)}>
                   <i className="el-carousel__arrow--icon" />
                 </button>
@@ -202,10 +200,7 @@ class Carousel extends Component {
             {arrow !== 'never' && (
               <View show={isShow}>
                 <button
-                  className={classnames(
-                    'el-carousel__arrow',
-                    'el-carousel__arrow--right'
-                  )}
+                  className={classnames('el-carousel__arrow', 'el-carousel__arrow--right')}
                   onClick={() => this.handleThrottleArrow(true)}>
                   <i className="el-carousel__arrow--icon" />
                 </button>
@@ -217,8 +212,7 @@ class Carousel extends Component {
         {dots && (
           <ul
             className={classnames('el-carousel__dots', {
-              'el-carousel__dots--outside':
-                dotPosition === 'outside' || this.isCard
+              'el-carousel__dots--outside': dotPosition === 'outside' || this.isCard
             })}>
             {items.map((item, index) => (
               <li
@@ -248,7 +242,8 @@ Carousel.propTypes = {
   dots: PropTypes.bool,
   indicator: PropTypes.bool,
   arrow: PropTypes.string,
-  type: PropTypes.oneOf(['card', 'flatcard']),
+  activeCardScale: PropTypes.number,
+  type: PropTypes.oneOf(['card']),
   onChange: PropTypes.func
 };
 
@@ -259,7 +254,8 @@ Carousel.defaultProps = {
   interval: 10000,
   indicator: true,
   arrow: 'hover',
-  dots: true
+  dots: true,
+  activeCardScale: 0.6
 };
 
 export default Carousel;
