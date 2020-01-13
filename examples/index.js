@@ -12,17 +12,17 @@ class App extends Component {
   render() {
     return (
       <div className="examples">
-        {/*
-      <Carousel height={200} type="card" autoplay={false} onChange={this.onChange}>
+        <Carousel height={200} type="card" autoplay={false} onChange={this.onChange}>
           {[1, 2, 3, 4, 5, 6, 7].map(item => (
             <Item key={item}> {item} </Item>
           ))}
         </Carousel>
-        <Carousel height={200} autoplay={false} onChange={this.onChange}>
+        {/* <Carousel height={200} autoplay={false} onChange={this.onChange}>
           {[1, 2, 3, 4, 5, 6, 7].map(item => (
             <Item key={item}> {item} </Item>
           ))}
           </Carousel> */}
+        {/*
         <div className="" style={{ height: '10px' }} />
         <Carousel height={200} autoplay={false} onChange={this.onChange}>
           {[1, 2].map(item => (
@@ -34,7 +34,7 @@ class App extends Component {
           {[1, 2, 3].map(item => (
             <Item key={item}> {item} </Item>
           ))}
-        </Carousel>
+          </Carousel> */}
       </div>
     );
   }

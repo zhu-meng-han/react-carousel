@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { View } from '@/libs';
 
-const SCALE = 0.83;
+const SCALE = 0.8;
 const DENOMINATOR = 4;
 class CarouselItem extends Component {
   state = {
@@ -28,7 +28,7 @@ class CarouselItem extends Component {
   }
 
   translateItem = (index, activeIndex, oldIndex) => {
-    const { carouselRef, state, isCard } = this.parent;
+    const { carouselRef = {}, state, isCard } = this.parent;
     const { length } = state.items;
     const { offsetWidth: parentWidth = 0 } = carouselRef;
     const params = {
