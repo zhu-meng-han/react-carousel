@@ -90,10 +90,19 @@ class CarouselItem extends Component {
   };
 
   handleItem = () => {
-    const { isCard, state, setActiveItem } = this.parent;
-    if (isCard) {
-      const index = state.items.indexOf(this);
-      setActiveItem(index);
+    const { isCard, state, setActiveItem, activeIndex } = this.parent;
+    const { length } = state.items;
+    const index = state.items.indexOf(this);
+    if (isCard && index !== activeIndex) {
+      let isNext = true;
+      if (activeIndex === 0) {
+        isNext = index !== length - 1;
+      } else if (activeIndex === length - 1) {
+        isNext = index === 0;
+      } else {
+        isNext = index > activeIndex;
+      }
+      setActiveItem(index, isNext);
     }
   };
 

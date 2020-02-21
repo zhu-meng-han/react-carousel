@@ -58,11 +58,19 @@
   margin: 20px auto;
 }
 
-.el-carousel__item {
-  &:nth-child(2n) {
-    background-color: #99a9bf;
-  }
-  &:nth-child(2n + 1) {
-    background-color:   #d3dce6;
+.carousel-item {
+  position: relative;
+  height: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  color: #fff;
+  background: linear-gradient(
+    360deg,
+    rgba(29, 119, 232, 1) 0%,
+    rgba(77, 156, 255, 1) 100%
+  );
+  opacity: 0.8;
+  &-active {
+    opacity: 1;
   }
 }

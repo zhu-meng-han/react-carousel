@@ -59,6 +59,10 @@ class Carousel extends Component {
     return type === 'card' ? activeCardScale : '100%';
   }
 
+  get activeIndex() {
+    return this.state.activeIndex;
+  }
+
   prev = () => {
     const { activeIndex } = this.state;
     this.setActiveItem(activeIndex - 1, false);
