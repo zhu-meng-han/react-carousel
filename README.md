@@ -1,3 +1,4 @@
+[Traderknows](https://traderknows.com/)
 ## Installation
 
 **npm**
